@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:pokemon_app/core/config/router/router.gr.dart';
 import 'package:pokemon_app/core/constans/app_dimensions.dart';
 import 'package:pokemon_app/core/extension/double_extension.dart';
 import 'package:pokemon_app/core/resource/app_assets.dart';
@@ -41,33 +42,36 @@ class WelcomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 13, horizontal: 38),
-                  decoration: BoxDecoration(
-                      color: Color(0xffFFCC18),
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Text(
-                    'Start Viewing',
-                    style: AppTextstyles.bodyBold
-                        .copyWith(fontSize: 24, color: Colors.black),
+          GestureDetector(
+            onTap: () => context.router.push(const HomeRoute()),
+            child: SizedBox(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 13, horizontal: 38),
+                    decoration: BoxDecoration(
+                        color: Color(0xffFFCC18),
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Text(
+                      'Start Viewing',
+                      style: AppTextstyles.bodyBold
+                          .copyWith(fontSize: 24, color: Colors.black),
+                    ),
                   ),
-                ),
-                AppDimensions.hugePadding.verticalSpace,
-                Text(
-                  'Don’t have an account?',
-                  style: AppTextstyles.bodyBold
-                      .copyWith(fontSize: 15, color: Colors.white),
-                ),
-                AppDimensions.hugePadding.verticalSpace,
-                AppDimensions.hugePadding.verticalSpace,
-              ],
+                  AppDimensions.hugePadding.verticalSpace,
+                  Text(
+                    'Don’t have an account?',
+                    style: AppTextstyles.bodyBold
+                        .copyWith(fontSize: 15, color: Colors.white),
+                  ),
+                  AppDimensions.hugePadding.verticalSpace,
+                  AppDimensions.hugePadding.verticalSpace,
+                ],
+              ),
             ),
           )
         ],
