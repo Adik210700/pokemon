@@ -16,7 +16,7 @@ class PokemonModel {
   final List<MovesModel>? moves;
   final String? name;
   final int? order;
-  final AbilityModel? species;
+  final AbilitiesModel? species;
   final SpritesModel? sprites;
   final List<StatsModel>? stats;
   final List<TypesModel>? types;

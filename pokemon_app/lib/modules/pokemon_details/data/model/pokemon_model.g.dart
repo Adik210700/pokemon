@@ -28,7 +28,7 @@ PokemonModel _$PokemonModelFromJson(Map<String, dynamic> json) => PokemonModel(
       order: (json['order'] as num?)?.toInt(),
       species: json['species'] == null
           ? null
-          : AbilityModel.fromJson(json['species'] as Map<String, dynamic>),
+          : AbilitiesModel.fromJson(json['species'] as Map<String, dynamic>),
       sprites: json['sprites'] == null
           ? null
           : SpritesModel.fromJson(json['sprites'] as Map<String, dynamic>),

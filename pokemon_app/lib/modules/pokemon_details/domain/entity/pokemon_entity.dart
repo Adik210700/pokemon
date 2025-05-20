@@ -2,7 +2,7 @@ class PokemonEntity {
   final List<AbilitiesEntity>? abilities;
   final int baseExperience;
   final CriesEntity cries;
-  final List<GameIndicesEntity>? gameIndices;
+  final List<GameIndicesEntity> gameIndices;
   final int height;
   final int id;
   final bool isDefault;
@@ -10,12 +10,12 @@ class PokemonEntity {
   final List<MovesEntity> moves;
   final String name;
   final int order;
-  final AbilityEntity species;
+  final AbilitiesEntity species;
   final SpritesEntity sprites;
   final List<StatsEntity> stats;
   final List<TypesEntity> types;
   final int weight;
-  final String svgImage;
+  
 
   PokemonEntity({
     required this.abilities,
@@ -34,12 +34,12 @@ class PokemonEntity {
     required this.stats,
     required this.types,
     required this.weight,
-    required this.svgImage,
+    
   });
 }
 
 class AbilitiesEntity {
-  final AbilitiesEntity ability;
+  final AbilityEntity ability;
   final bool isHidden;
   final int slot;
   
@@ -64,13 +64,13 @@ class CriesEntity {
 
 class GameIndicesEntity {
   final int gameIndex;
-  final GameIndicesEntity version;
+  final AbilitiesEntity version;
 
   GameIndicesEntity({required this.gameIndex, required this.version});
 }
 
 class MovesEntity {
-  final AbilityEntity move;
+  final AbilitiesEntity move;
   final List<VersionGroupDetailsEntity> versionGroupDetails;
 
   MovesEntity({required this.move, required this.versionGroupDetails});
@@ -78,9 +78,9 @@ class MovesEntity {
 
 class VersionGroupDetailsEntity {
   final int levelLearnedAt;
-  final AbilityEntity moveLearnMethod;
+  final AbilitiesEntity moveLearnMethod;
   final int order;
-  final AbilityEntity versionGroup;
+  final AbilitiesEntity versionGroup;
 
   VersionGroupDetailsEntity(
       {required this.levelLearnedAt,
@@ -123,7 +123,7 @@ class StatsEntity {
 
 class TypesEntity {
   final int slot;
-  final AbilityEntity type;
+  final AbilitiesEntity type;
 
   TypesEntity({required this.slot, required this.type});
 }

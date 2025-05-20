@@ -21,6 +21,12 @@ import '../../../modules/home/domain/usecase/get_pokemons_usecase.dart'
     as _i678;
 import '../../../modules/home/presentation/bloc/get_pokemons_bloc.dart'
     as _i346;
+import '../../../modules/pokemon_details/data/maper/pokemon_model_maper.dart'
+    as _i1019;
+import '../../../modules/pokemon_details/data/repository/pokemon_details_repository.dart'
+    as _i831;
+import '../../../modules/pokemon_details/domain/repository/pokemon_details_domain_repository.dart'
+    as _i60;
 import '../dio_settings.dart' as _i837;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -36,7 +42,10 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i770.PokemonListModelMapper>(
         () => _i770.PokemonListModelMapper());
+    gh.factory<_i1019.PokemonModelMaper>(() => _i1019.PokemonModelMaper());
     gh.lazySingleton<_i837.DioSettings>(() => _i837.DioSettings());
+    gh.lazySingleton<_i60.PokemonDetailsDomainRepository>(() =>
+        _i831.PokemonDetailsRepository(mapper: gh<_i1019.PokemonModelMaper>()));
     gh.lazySingleton<_i22.PokemonsDomainRepository>(() =>
         _i88.PokemonsRepository(mapper: gh<_i770.PokemonListModelMapper>()));
     gh.factory<_i678.GetPokemonsUsecase>(() => _i678.GetPokemonsUsecase(
