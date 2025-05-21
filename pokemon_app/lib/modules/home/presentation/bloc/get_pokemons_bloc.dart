@@ -16,16 +16,13 @@ class GetPokemonsBloc
           AppState(status: StateStatus.init),
         ) {
     on<GetPokemonsListEvent>((event, emit) async {
-      
       try {
         final result = await _getPokemonsUsecase.execute(
             limit: event.limit, offset: event.offset);
-            pokemons = [...pokemons,...result.results];
+        pokemons = [...pokemons, ...result.results];
         emit(
-          AppState(
-            
-            status: StateStatus.success,
-            model: PokemonsListEntity(
+          AppState.success(
+             PokemonsListEntity(
               count: result.count,
               next: result.next,
               previous: result.previous,

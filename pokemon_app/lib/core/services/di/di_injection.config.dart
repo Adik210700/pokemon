@@ -27,6 +27,10 @@ import '../../../modules/pokemon_details/data/repository/pokemon_details_reposit
     as _i831;
 import '../../../modules/pokemon_details/domain/repository/pokemon_details_domain_repository.dart'
     as _i60;
+import '../../../modules/pokemon_details/domain/usecase/get_pokemon_details_usecase.dart'
+    as _i778;
+import '../../../modules/pokemon_details/presentation/bloc/get_pokemon_details_bloc.dart'
+    as _i511;
 import '../dio_settings.dart' as _i837;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -50,8 +54,13 @@ extension GetItInjectableX on _i174.GetIt {
         _i88.PokemonsRepository(mapper: gh<_i770.PokemonListModelMapper>()));
     gh.factory<_i678.GetPokemonsUsecase>(() => _i678.GetPokemonsUsecase(
         pokemonRepository: gh<_i22.PokemonsDomainRepository>()));
+    gh.factory<_i778.GetPokemonDetailsUsecase>(() =>
+        _i778.GetPokemonDetailsUsecase(
+            repository: gh<_i60.PokemonDetailsDomainRepository>()));
     gh.factory<_i346.GetPokemonsBloc>(() => _i346.GetPokemonsBloc(
         getPokemonsUsecase: gh<_i678.GetPokemonsUsecase>()));
+    gh.factory<_i511.GetPokemonDetailsBloc>(() => _i511.GetPokemonDetailsBloc(
+        getPokemonDetailsUsecase: gh<_i778.GetPokemonDetailsUsecase>()));
     return this;
   }
 }
