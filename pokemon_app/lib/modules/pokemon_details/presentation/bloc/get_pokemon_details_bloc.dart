@@ -19,13 +19,13 @@ class GetPokemonDetailsBloc extends Bloc<AppEvent, AppState<PokemonEntity>> {
           ),
         ) {
     on<GetPokemonDetailsEvent>(
-      (event, emit) {
+      (event, emit) async {
         emit(
           AppState(
             status: StateStatus.loading,
           ),
         );
-        _getPokemonDetailsUsecase.execute(event.id).then((result) {
+       await  _getPokemonDetailsUsecase.execute(event.id).then((result) {
           emit(
             AppState.success( result),
           );

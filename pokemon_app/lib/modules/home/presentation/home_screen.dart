@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokemon_app/core/base/app_state.dart';
+import 'package:pokemon_app/core/config/router/router.gr.dart';
 import 'package:pokemon_app/core/constans/app_dimensions.dart';
 import 'package:pokemon_app/core/enum/state_status.dart';
 import 'package:pokemon_app/core/extension/double_extension.dart';
@@ -81,19 +82,30 @@ class _HomeScreenState extends State<HomeScreen> {
                                 },
                                 controller: paginationScrollController,
                                 itemCount: state.model?.results.length ?? 0,
-                                itemBuilder: (context, index) => Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: AppDimensions
-                                          .mediumBorderRadius.circular,
-                                      color: Colors.black.withOpacity(0.3)),
-                                  child: ListTile(
-                                    leading: Text((index + 1).toString()),
-                                    title: Text(
-                                      state.model?.results[index].name
-                                              .toUpperCase() ??
-                                          '',
-                                      style: AppTextstyles.bodyMedium
-                                          .copyWith(color: Colors.white),
+                                itemBuilder: (context, index) =>
+                                    GestureDetector(
+                                  onTap: () {
+                                    context.router.push(
+                                      PokemonDetailsRoute(
+                                        maxCount: state.model?.count ?? 0,
+                                        id: index + 1,
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: AppDimensions
+                                            .mediumBorderRadius.circular,
+                                        color: Colors.black.withOpacity(0.3)),
+                                    child: ListTile(
+                                      leading: Text((index + 1).toString()),
+                                      title: Text(
+                                        state.model?.results[index].name
+                                                .toUpperCase() ??
+                                            '',
+                                        style: AppTextstyles.bodyMedium
+                                            .copyWith(color: Colors.white),
+                                      ),
                                     ),
                                   ),
                                 ),

@@ -15,7 +15,7 @@ class PokemonEntity {
   final List<StatsEntity> stats;
   final List<TypesEntity> types;
   final int weight;
-  
+  final String svgImage;
 
   PokemonEntity({
     required this.abilities,
@@ -34,7 +34,7 @@ class PokemonEntity {
     required this.stats,
     required this.types,
     required this.weight,
-    
+    required this.svgImage,
   });
 }
 
@@ -42,10 +42,9 @@ class AbilitiesEntity {
   final AbilityEntity ability;
   final bool isHidden;
   final int slot;
-  
-  AbilitiesEntity({required this.ability, required this.isHidden, required this.slot});
 
- 
+  AbilitiesEntity(
+      {required this.ability, required this.isHidden, required this.slot});
 }
 
 class AbilityEntity {
@@ -98,17 +97,16 @@ class SpritesEntity {
   final String frontFemale;
   final String frontShiny;
   final String frontShinyFemale;
- 
 
-  SpritesEntity(
-      {required this.backDefault,
-      required this.backFemale,
-      required this.backShiny,
-      required this.backShinyFemale,
-      required this.frontDefault,
-      required this.frontFemale,
-      required this.frontShiny,
-      required this.frontShinyFemale,
+  SpritesEntity({
+    required this.backDefault,
+    required this.backFemale,
+    required this.backShiny,
+    required this.backShinyFemale,
+    required this.frontDefault,
+    required this.frontFemale,
+    required this.frontShiny,
+    required this.frontShinyFemale,
   });
 }
 
@@ -116,9 +114,12 @@ class StatsEntity {
   final int baseStat;
   final int effort;
   final AbilitiesEntity stat;
-  
 
-  StatsEntity( {required this.baseStat, required this.effort, required this.stat,});
+  StatsEntity({
+    required this.baseStat,
+    required this.effort,
+    required this.stat,
+  });
 }
 
 class TypesEntity {

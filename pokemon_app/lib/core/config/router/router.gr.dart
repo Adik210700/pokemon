@@ -39,10 +39,11 @@ class PokemonDetailsRoute extends _i4.PageRouteInfo<PokemonDetailsRouteArgs> {
   PokemonDetailsRoute({
     _i5.Key? key,
     required int id,
+    required int maxCount,
     List<_i4.PageRouteInfo>? children,
   }) : super(
          PokemonDetailsRoute.name,
-         args: PokemonDetailsRouteArgs(key: key, id: id),
+         args: PokemonDetailsRouteArgs(key: key, id: id, maxCount: maxCount),
          initialChildren: children,
        );
 
@@ -52,21 +53,31 @@ class PokemonDetailsRoute extends _i4.PageRouteInfo<PokemonDetailsRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<PokemonDetailsRouteArgs>();
-      return _i2.PokemonDetailsScreen(key: args.key, id: args.id);
+      return _i2.PokemonDetailsScreen(
+        key: args.key,
+        id: args.id,
+        maxCount: args.maxCount,
+      );
     },
   );
 }
 
 class PokemonDetailsRouteArgs {
-  const PokemonDetailsRouteArgs({this.key, required this.id});
+  const PokemonDetailsRouteArgs({
+    this.key,
+    required this.id,
+    required this.maxCount,
+  });
 
   final _i5.Key? key;
 
   final int id;
 
+  final int maxCount;
+
   @override
   String toString() {
-    return 'PokemonDetailsRouteArgs{key: $key, id: $id}';
+    return 'PokemonDetailsRouteArgs{key: $key, id: $id, maxCount: $maxCount}';
   }
 }
 

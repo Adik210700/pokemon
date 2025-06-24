@@ -43,6 +43,7 @@ class PokemonModelMaper {
       stats: response.stats?.map((stat) => _mapStats(stat)).toList() ?? [],
       types: response.types?.map((type) => _mapTypes(type)).toList() ?? [],
       weight: response.weight ?? 0,
+      svgImage: response.sprites?.other?.dreamWorld?.frontDefault ?? ''
     );
   }
 

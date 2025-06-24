@@ -154,26 +154,52 @@ Map<String, dynamic> _$VersionGroupDetailsModelToJson(
     };
 
 SpritesModel _$SpritesModelFromJson(Map<String, dynamic> json) => SpritesModel(
-      backDefault: json['backDefault'] as String?,
-      backFemale: json['backFemale'] as String?,
-      backShiny: json['backShiny'] as String?,
-      backShinyFemale: json['backShinyFemale'] as String?,
-      frontDefault: json['frontDefault'] as String?,
-      frontFemale: json['frontFemale'] as String?,
-      frontShiny: json['frontShiny'] as String?,
-      frontShinyFemale: json['frontShinyFemale'] as String?,
+      backDefault: json['back_default'] as String?,
+      backFemale: json['back_female'] as String?,
+      backShiny: json['back_shiny'] as String?,
+      backShinyFemale: json['back_shiny_female'] as String?,
+      frontDefault: json['front_default'] as String?,
+      frontFemale: json['front_female'] as String?,
+      frontShiny: json['front_shiny'] as String?,
+      frontShinyFemale: json['front_shiny_female'] as String?,
+      other: json['other'] == null
+          ? null
+          : OtherModel.fromJson(json['other'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$SpritesModelToJson(SpritesModel instance) =>
     <String, dynamic>{
-      'backDefault': instance.backDefault,
-      'backFemale': instance.backFemale,
-      'backShiny': instance.backShiny,
-      'backShinyFemale': instance.backShinyFemale,
-      'frontDefault': instance.frontDefault,
-      'frontFemale': instance.frontFemale,
-      'frontShiny': instance.frontShiny,
-      'frontShinyFemale': instance.frontShinyFemale,
+      'back_default': instance.backDefault,
+      'back_female': instance.backFemale,
+      'back_shiny': instance.backShiny,
+      'back_shiny_female': instance.backShinyFemale,
+      'front_default': instance.frontDefault,
+      'front_female': instance.frontFemale,
+      'front_shiny': instance.frontShiny,
+      'front_shiny_female': instance.frontShinyFemale,
+      'other': instance.other,
+    };
+
+OtherModel _$OtherModelFromJson(Map<String, dynamic> json) => OtherModel(
+      dreamWorld: json['dream_world'] == null
+          ? null
+          : DreamWorldModel.fromJson(
+              json['dream_world'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$OtherModelToJson(OtherModel instance) =>
+    <String, dynamic>{
+      'dream_world': instance.dreamWorld,
+    };
+
+DreamWorldModel _$DreamWorldModelFromJson(Map<String, dynamic> json) =>
+    DreamWorldModel(
+      frontDefault: json['front_default'] as String?,
+    );
+
+Map<String, dynamic> _$DreamWorldModelToJson(DreamWorldModel instance) =>
+    <String, dynamic>{
+      'front_default': instance.frontDefault,
     };
 
 StatsModel _$StatsModelFromJson(Map<String, dynamic> json) => StatsModel(
